@@ -1,0 +1,66 @@
+{{>header}}
+{{#if isWrong}}
+{{#each errors}}
+<div class="alert" style="padding: 20px;background-color: #f44336;color: white;">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <strong>Retry!</strong> {{this.msg}}
+</div>
+{{/each}}
+{{/if}}
+<script>
+    function togglePassword() {
+        var type = document.getElementById("Password").type;
+        if (type == 'password') {
+            document.getElementById("Password").type = "text";
+        } else {
+            document.getElementById("Password").type = "password";
+        }
+    }
+    function toggleconPassword() {
+        var type = document.getElementById("Confirm_Password").type;
+        if (type == 'password') {
+            document.getElementById("Confirm_Password").type = "text";
+        } else {
+            document.getElementById("Confirm_Password").type = "password";
+        }
+    }
+</script>
+<div class="row  " style="position: relative; top:80px; ">
+    <div class="col l6 s9 push-s1 container push-l1">
+        <img src="img/undraw_events_2p66.svg" class="container">
+    </div>
+    <div class="col l4 s9 push-s1 row card push-l1  z-depth-4"
+        style="border-radius:15px; position: relative; top:-10px">
+        <div class="col l12 ">
+            <ul class="tabs">
+                <li class="tab col s6">
+                    <a href="#update_password" class="active indigo-text text-darken-4">Password Reset</a>
+            </ul>
+            <div id="#update_password" class="col s12">
+
+                <form action="update_pwd" class="container" style="padding-bottom:10px" method="POST">
+
+                    <div class="input-field">
+                        <input type="password" id="Password" name="Password" placeholder="Password" required>
+                        <span style="float:right;margin-top: -30px;position: relative;"
+                            class="fa fa-fw fa-eye field-icon" onclick="togglePassword()"></span>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" id="Confirm_Password" name="Confirm Password"
+                            placeholder="Confirm_Password" required>
+                        <span style="float:right;margin-top: -30px;position: relative;"
+                            class="fa fa-fw fa-eye field-icon" onclick="toggleconPassword()"></span>
+                    </div>
+                    <div class="input-field center" style="padding-top: 10px ;">
+                        <button class="btn" type="submit" style="background-color:#1a237e">Submit</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- footer -->
+<div style="padding-top: 140px ;">
+</div>
+{{>footer}}

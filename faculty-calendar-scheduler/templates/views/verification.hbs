@@ -1,0 +1,41 @@
+{{>header}}
+{{#if isWrong}}
+{{#each errors}}
+<div class="alert" style="padding: 20px;background-color: #f44336;color: white;">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <strong>Retry!</strong> {{this.msg}}
+</div>
+{{/each}}
+{{/if}}
+<div class="row  " style="position: relative; top:80px; ">
+    <div class="col l6 s9 push-s1 container push-l1">
+        <img src="img/undraw_events_2p66.svg" class="container">
+    </div>
+    <div class="col l4 s9 push-s1 row card push-l1  z-depth-4"
+        style="border-radius:15px; position: relative; top:-10px">
+        <div class="col l12 ">
+            <ul class="tabs">
+                <li class="tab col s6">
+                    <a href="#verification" class="active indigo-text text-darken-4">Password Reset</a>
+            </ul>
+            <div id="#verification" class="col s12">
+                <br>
+                <a style="color: black;">Enter the Verification Code sent to your Mail</a>
+                <form action="verify_code" class="container" style="padding-bottom:10px" method="POST">
+
+                    <div class="input-field">
+                        <input type="text" id="verific_code" name="verific_code" placeholder="Code" required>
+                    </div>
+                    <div class="input-field center" style="padding-top: 10px ;">
+                        <button class="btn" type="submit" style="background-color:#1a237e">Verify</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- footer -->
+<div style="padding-top: 140px ;">
+</div>
+{{>footer}}

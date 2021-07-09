@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>FCSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital@1&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div>
+        <ul id="slide-out" class="sidenav sidenav-fixed main-wrapper black white-text">
+            <div class="row">
+                <div class="col s4">
+                    <img src="../img/Dashboard.svg" style="padding: 0%;height: 100px;width: 100px;">
+                </div>
+                <div class="col s4">
+                    <h5 class="white-Text" style="padding:30px;">Dashboard</h5>
+                </div>
+            </div>
+            <li><a class="white-text" href="../admin_dashboard">Home</a></li>
+            <hr>
+            {{#each users}}
+            <li><a class="white-text waves-effect" href="../user_detail/{{this.user_id}}">{{this.user_id}}</a></li>
+            {{/each}}
+        </ul>
+    </div>
+    <div>
+        <nav class="nav-wrapper black" style="margin-left: 16%;width:84%">
+            <div class="container">
+                <a href="home" class="brand-logo"><img style="position:relative; top:10px"
+                        src="https://img.icons8.com/fluent/48/000000/calendar.png" /> FCSS</a>
+                <a href="#" class="sidenav-trigger" data-target="mobile-menu">
+                    <i class="material-icons" onclick="openNav">menu</i>
+                </a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="home">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    {{#if isAdmin}}
+                    <li><a href="admin_dashboard">Dashboard</a></li>
+                    {{else}}
+                    <li><a href="faculty_dashboard">Dashboard</a></li>
+                    {{/if}}
+                    <li><a href="profile">{{username}}</a></li>
+                    <li><a href="logout">Logout</a></li>
+                </ul>
+                <ul class="sidenav grey lighten-2" id="mobile-menu">
+                    <li><a href="home">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    {{#if isAdmin}}
+                    <li><a href="admin_dashboard">Dashboard</a></li>
+                    {{else}}
+                    <li><a href="faculty_dashboard">Dashboard</a></li>
+                    {{/if}}
+                    <li><a href="profile">{{username}}</a></li>
+                    <li><a href="logout">Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div style="margin-left: 16%; width: 84%;background-color:white">
+        <div style="height:200px;">
+            <div class="parallax">
+                <img style="width: 100%;" src="../img/triangle.png" alt="">
+            </div>
+        </div>
+        <div class="row" style="position: relative; top: -60px;padding:100px;">
+            <div class=" card col l7 row z-depth-3 push-l1 " style="border-radius:7px; ">
+                <div class="row">
+                    <h6 style="position: relative; left:10px; " class="indigo-text text-darken-4">Faculty INFORMATION
+                    </h6>
+                    <div class="col l6">
+                        <p class="indigo-text text-darken-4">User ID</p>
+                        <p class="card" style="position: relative; top:-10px; padding: 7px;">{{faculty}}</p>
+                    </div>
+                    <div class="col l6">
+                        <p class="indigo-text text-darken-4">Email ID</p>
+                        <p class="card" style="position: relative; top:-10px; padding:7px">{{mail_id}}</p>
+                    </div>
+                </div>
+                <div class="row" style="position: relative; top:-40px">
+                    <div class="col l6">
+                        <p class="indigo-text text-darken-4">First Name</p>
+                        <p class="card" style="position: relative; top:-10px; padding: 7px;">{{first_name}}</p>
+                    </div>
+                    <div class="col l6">
+                        <p class="indigo-text text-darken-4">Last Name</p>
+                        <p class="card" style="position: relative; top:-10px; padding:7px">{{last_name}}</p>
+                    </div>
+                </div>
+                <div class="row " style="position: relative; top:-80px; border-bottom: 1px solid grey;">
+                    <div class="col l6">
+                        <p class="indigo-text text-darken-4">Age</p>
+                        <p class="card" style="position: relative; top:-10px; padding: 7px;">{{age}}</p>
+                    </div>
+                    <div class="col l6">
+                        <p class="indigo-text text-darken-4">Gender</p>
+                        <p class="card" style="position: relative; top:-10px; padding:7px">{{gender}}</p>
+                    </div>
+                </div>
+                <div class="row" style="position: relative; top:-80px">
+                    <h6 style="position: relative; left:10px; " class="indigo-text text-darken-4">CONTACT INFORMATION
+                    </h6>
+                    <div class="col l6">
+                        <p class="indigo-text text-darken-4">Contact Number</p>
+                        <p class="card" style="position: relative; top:-10px; padding: 7px;">{{phone_no}}</p>
+                    </div>
+                    <div class="col l6">
+                        <p class="indigo-text text-darken-4">State</p>
+                        <p class="card" style="position: relative; top:-10px; padding:7px">{{state}}</p>
+                    </div>
+                </div>
+                <div class="row" style="position: relative; top:-120px">
+                    <div class="col l12">
+                        <p class="indigo-text text-darken-4">College</p>
+                        <p class="card" style="position: relative; top:-10px; padding: 7px;">{{college}}</p>
+                    </div>
+                    <div class="col l12 push-l10">
+                        <a class="btn-floating btn-large red pulse" href="#"><i
+                                class="material-icons">person_remove</i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col l1  push-l2 avatar " style=" position: relative; top:-40px;">
+                <img style=" width: 180px; height: 180px;" src="../img/avatar.svg" alt="">
+                <div class="row">
+                    <div class="col m6">
+                        <a class="btn waves-effect waves-light" name="timetable" href="../{{faculty}}/show_timetable">Timetable
+                            <i class="material-icons right">send</i>
+                        </a>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="col m6" style="padding-left: 100%;">
+                        <a class="btn waves-effect waves-light" name="Events" href="../{{faculty}}/show_events">Events
+                            <i class="material-icons right">send</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+</body>
+<footer class="page-footer grey darken-3" style="margin-left: 16%;width:84%">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5>About Me</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit
+                    nec, tincidunt orci.</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Connect</h5>
+                <ul>
+                    <li><a class="grey-text text-lighten-3" href="#">Facebook</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#">Twitter</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#">Linked In</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright grey darken-4">
+        <div class="container center-align">&copy; 2021 FCSS</div>
+    </div>
+</footer>

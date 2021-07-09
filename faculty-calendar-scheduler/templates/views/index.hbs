@@ -1,0 +1,102 @@
+<html lang="en">
+{{#if isLoggedIn}}
+   {{>logged_header}}
+{{else}}
+  {{>header}}
+{{/if}}
+<div class= "grey lighten-1"style = "position: relative ; top:0px; border: 40px solid #eeeeee;" >
+            <!--<div class="carousel carousel-slider">
+                <a class="carousel-item" href="#one!"><img src="milky-way.jpg" style = "height:200%"></a>
+                <a class="carousel-item" href="#two!"><img src="TimeTable.jpg"></a>
+                <a class="carousel-item" href="#three!"><img src="Reminder.jpg"></a>
+              </div>-->
+
+              <div class="carousel center" style="height: 500px;" >
+                <a class="carousel-item" href="#one!"><img src="img/pic1.jpg"  style = "height:150%; width:200%"><h5 class="center black-text" style="width: 400px;">Faculty Calendar Scheduler</h5></a>
+                <a class="carousel-item" href="#two!"><img src="img/pic2.jpg"  style = "height:150%; width:200%"><h5 class="center black-text" style="width: 400px;">Meetings</h5></a>
+                <a class="carousel-item" href="#three!"><img src="img/pic3.jpg"  style = "height:150%; width:210%"><h5 class="center black-text" style="width: 400px;">Class timetables</h5></a>
+                <a class="carousel-item" href="#four!"><img src="img/pic7.jpg"  style = "height:150%; width:200%"><h5 class="center black-text" style="width: 400px;">Event management</h5></a>
+                <a class="carousel-item" href="#five!"><img src="img/pic9.png"  style = "height:150%; width:200%"><h5 class="center black-text" style="width: 400px;">Planned schedules</h5></a>
+              </div>
+              <br>
+              <br>
+
+          </div>
+        
+          <div style="position: relative; top: 0px;">
+          <div class="row  " style=" margin: 0px 40px 0px 40px;border-top: 2px solid gainsboro; padding-top:30px; ">
+            <div class="col l5 s9 push-s1 container push-l2">
+                <img src="img/meeting.svg" class="container">
+            </div>
+            <div class="col l4 s9 push-s1 row  push-l1 "  style="position: relative;">
+                <h3>Never miss meetings</h3>
+                <p style = "font-size: 20px;">FCSS uses Google APIs to update your Google calendar with your day to day events, thus reminding you so that you
+                  never miss your meetings
+                </p>
+                
+                <p style = "font-size: 20px;">All you got to do is update your events in the website and the website will remind you of it in time</p>
+            </div>
+          </div>
+        <br>
+        <br>
+        <br>
+        <div class="row  " style="position: relative; top:20px;  margin: 0px 40px 0px 40px;border-top: 2px solid gainsboro; padding-top:30px;">
+          <div class="col l4 s9 push-s1 row  push-l2 "  style="position: relative;">
+            <h3>Regular Classes</h3>
+            <p style = "font-size: 20px;">Be on time for classes without getting confused of the venue and the subject to be taken
+            </p>
+            
+            <p style = "font-size: 20px;">Give in the number of slots per day and the classes in your timetable and get reminded of upcoming classes with venue</p>
+        </div>
+          <div class="col l5 s9 push-s1 container push-l2">
+              <img src="img/teaching.svg" class="container">
+          </div>
+          
+      </div>
+        <br>
+        <br>
+        <br>
+        <div class="row  "  style="position: relative; top:20px;  margin: 0px 40px 0px 40px;border-top: 2px solid gainsboro; padding-top:30px;">
+          <div class="col l5 s9 push-s1 container push-l2">
+              <img src="img/events2.svg" class="container">
+          </div>
+          <div class="col l4 s9 push-s1 row  push-l1 "  style="position: relative; top:10px">
+              <h3>Never miss meetings</h3>
+              <p style = "font-size: 20px;">FCSS uses Google APIs to update your Google calendar with your day to day events, thus reminding you so that you
+                never miss your meetings
+              </p>
+              
+              <p style = "font-size: 20px;">All you got to do is update your events in the website and the website will remind you of it in time</p>
+          </div>
+        </div>
+        </div>
+        <br>
+        <br>
+        
+            
+        <br>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+                <script>
+                $(document).ready(function(){
+                    $('.sidenav').sidenav();
+                    $('.materialboxed').materialbox();
+                    $('.parallax').parallax();
+                    $('.tabs').tabs();
+                    $(document).ready(function(){
+            $('select').formSelect();
+          });
+                    $('.datepicker').datepicker({
+        
+                    });
+                    $('.carousel.carousel-slider').carousel({
+                        duration: 200,
+    fullWidth: true,
+    indicators: true
+  });
+  $('.carousel').carousel();
+       
+                    }); 
+          </script>
+     </body>
+{{>footer}}

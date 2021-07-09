@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FCSS</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+        <style>
+			.tabs .indicator{
+				background-color: #1a237e;
+				}
+			.tabs .tab a:focus, .tabs .tab a:focus.active{
+				background: transparent;
+            }
+
+            .calendar-content {
+        background-color: #fff;
+        padding: 20px;
+        padding-left: 15%;
+        padding-right: 15%;
+        overflow: hidden;
+}
+
+td{
+  border-bottom: 10px;
+  
+}
+.col{
+  margin:20px 0px 20px 0px;
+}
+
+td:hover { 
+   background-color: #d1c4e9;
+}
+
+table{
+  position: relative;
+  top:-70px
+}
+
+/*#calendar-table {
+   text-align: center;
+}
+
+#table-body .row .col {
+   padding: .75rem;
+}
+
+#table-body .col {
+   border: 1px solid transparent;
+}
+
+#table-body .row {
+   margin-bottom: 0;
+}
+
+#table-body .col {
+   padding-top: 1.3rem !important;
+   padding-bottom: 1.3rem !important;
+}*/
+
+
+
+		</style>
+    </head>
+    <body class = "indigo lighten-2">
+        <header>
+            <nav class="nav-wrapper black">
+              <div class="container">
+                <a href="#" class="brand-logo"><img style = "position:relative; top:10px" src="https://img.icons8.com/fluent/48/000000/calendar.png"/>  FCSS</a>
+                <a href="#" class="sidenav-trigger" data-target="mobile-menu">
+                  <i class="material-icons" onclick="openNav" >menu</i>
+                </a>
+                <ul class="right hide-on-med-and-down">
+                  <li><a href="../home">Home</a></li>
+                  <li><a href="#">About</a></li>
+                  {{#if isAdmin}}
+                  <li><a href="../admin_dashboard">Dashboard</a></li>
+                  {{else}}
+                  <li><a href="../faculty_dashboard">Dashboard</a></li>
+                  {{/if}}
+                  <li><a href="../profile">{{username}}</a></li>
+                  <li><a href="../logout">Logout</a></li>
+                </ul>
+                <ul class="sidenav grey lighten-2" id="mobile-menu">
+                  <li><a href="../home">Home</a></li>
+                  <li><a href="#">About</a></li>
+                  {{#if isAdmin}}
+                  <li><a href="../admin_dashboard">Dashboard</a></li>
+                  {{else}}
+                  <li><a href="../faculty_dashboard">Dashboard</a></li>
+                  {{/if}}
+                  <li><a href="../profile">{{username}}</a></li>
+                  <li><a href="../logout">Logout</a></li>
+                </ul>
+              </div>
+            </nav>
+          </header>
+
+          <div class="parallax-container" style="height:300px;">
+            <div class="parallax">
+              <img src="../background.jpg" alt="" class="responsive-img">
+            </div>
+          </div>
+  
+
+          <div class="container">
+          <table class = "card black-text z-depth-4" style = "background-color: white;   margin:10px 10px 10px 20px">
+            <thead>
+              <tr>
+                <th  class = "center content">Day/Time</th>
+                  {{#each slot_timings}}
+                  <th  class = "center content " >{{this.start_time}}-{{this.end_time}}</th>
+                  {{/each}}
+              </tr>
+            </thead>
+            <tbody>
+              {{#each tab}}
+              <tr>
+                <td class = "center">{{this.day}}</td>
+                {{#each this.slots}}
+                <td  class = "center"><a href="#{{this.id}}" class = "modal-trigger">{{this.venue}}<br>{{this.desc}}</a></td>
+                {{/each}}
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+
+</div>
+
+          <footer class="page-footer grey darken-3" style="position: relative; top: 50px;">
+            <div class="container">
+              <div class="row">
+                <div class="col l6 s12">
+                  <h5>About Me</h5>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue.</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                  <h5 class="white-text">Connect</h5>
+                  <ul>
+                    <li><a class="grey-text text-lighten-3" href="#">Facebook</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#">Twitter</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#">Linked In</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#">Instagram</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="footer-copyright grey darken-4">
+              <div class="container center-align">&copy; 2021 FCSS</div>
+            </div>
+          </footer>
+              
+                <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+                <script>
+                $(document).ready(function(){
+                    $('.sidenav').sidenav();
+                    $('.materialboxed').materialbox();
+                    $('.parallax').parallax();
+                    $('.tabs').tabs();
+                    $(document).ready(function(){
+            $('select').formSelect();
+          });
+                    $('.datepicker').datepicker({
+        
+                    });
+                    }); 
+                    $(document).ready(function(){
+    $('.modal').modal();
+  });
+       
+          </script>
+         
+            </body>
+        </html>
+          

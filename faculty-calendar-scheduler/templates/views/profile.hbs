@@ -1,0 +1,109 @@
+{{>logged_header}}
+
+<head>
+    <title>FCSS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <style>
+        .tabs .indicator {
+            background-color: #1a237e;
+        }
+
+        .tabs .tab a:focus,
+        .tabs .tab a:focus.active {
+            background: transparent;
+        }
+    </style>
+</head>
+
+<body class="indigo lighten-2">
+    <div class="parallax-container" style="height:300px;">
+        <div class="parallax">
+            <img src="img/triangle.png" alt="" class="responsive-img">
+        </div>
+    </div>
+    <div class="row" style="position: relative; top: -60px">
+        <div class=" card col l7 row z-depth-3 push-l1 " style="border-radius:7px; ">
+            <div class="row container col l12 " style="border-bottom: 2px solid indigo;">
+                <h5 class=" col center-align l12 indigo-text text-darken-4">My Account</h5>
+            </div>
+            <div class="row">
+                <h6 style="position: relative; left:10px; " class="indigo-text text-darken-4">USER INFORMATION</h6>
+                <div class="col l6">
+                    <p class="indigo-text text-darken-4">User ID</p>
+                    <p class="card" style="position: relative; top:-10px; padding: 7px;">{{username}}</p>
+                </div>
+                <div class="col l6">
+                    <p class="indigo-text text-darken-4">Email ID</p>
+                    <p class="card" style="position: relative; top:-10px; padding:7px">{{mail_id}}</p>
+                </div>
+            </div>
+            <div class="row" style="position: relative; top:-40px">
+                <div class="col l6">
+                    <p class="indigo-text text-darken-4">First Name</p>
+                    <p class="card" style="position: relative; top:-10px; padding: 7px;">{{first_name}}</p>
+                </div>
+                <div class="col l6">
+                    <p class="indigo-text text-darken-4">Last Name</p>
+                    <p class="card" style="position: relative; top:-10px; padding:7px">{{last_name}}</p>
+                </div>
+            </div>
+            <div class="row " style="position: relative; top:-80px; border-bottom: 1px solid grey;">
+                <div class="col l6">
+                    <p class="indigo-text text-darken-4">Age</p>
+                    <p class="card" style="position: relative; top:-10px; padding: 7px;">{{age}}</p>
+                </div>
+                <div class="col l6">
+                    <p class="indigo-text text-darken-4">Gender</p>
+                    <p class="card" style="position: relative; top:-10px; padding:7px">{{gender}}</p>
+                </div>
+            </div>
+            <div class="row" style="position: relative; top:-80px">
+                <h6 style="position: relative; left:10px; " class="indigo-text text-darken-4">CONTACT INFORMATION</h6>
+                <div class="col l6">
+                    <p class="indigo-text text-darken-4">Contact Number</p>
+                    <p class="card" style="position: relative; top:-10px; padding: 7px;">{{phone_no}}</p>
+                </div>
+                <div class="col l6">
+                    <p class="indigo-text text-darken-4">State</p>
+                    <p class="card" style="position: relative; top:-10px; padding:7px">{{state}}</p>
+                </div>
+            </div>
+            <div class="row" style="position: relative; top:-120px">
+                <div class="col l12">
+                    <p class="indigo-text text-darken-4">College</p>
+                    <p class="card" style="position: relative; top:-10px; padding: 7px;">{{college}}</p>
+                </div>
+                <div class="col push-l10">
+                    <a class="btn-floating btn-large indigo lighten-2 pulse" href="/modify"><i
+                            class="material-icons">edit</i></a>
+                </div>
+            </div>
+
+        </div>
+        <div class="col l1  push-l2 avatar " style=" position: relative; top:-40px;">
+            <img style=" width: 180px; height: 180px;" src="img/avatar.svg" alt="">
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.sidenav').sidenav();
+            $('.materialboxed').materialbox();
+            $('.parallax').parallax();
+            $('.tabs').tabs();
+            $(document).ready(function () {
+                $('select').formSelect();
+            });
+            $('.datepicker').datepicker({
+            });
+        });
+    </script>
+</body>
+{{>footer}}

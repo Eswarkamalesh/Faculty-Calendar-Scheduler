@@ -1,0 +1,61 @@
+.background {
+    position: relative;
+    width: 100%;
+}
+
+
+/* Make the image responsive */
+
+.background img {
+    width: 100%;
+    height: 100vh;
+    background: url('/img/grad1.jpg') no-repeat 50% 50%;
+    background-size: cover;
+    transition: 1s ease;
+}
+
+.background img:hover {
+    -webkit-filter: blur(5px);
+    transition: 1s ease;
+}
+
+
+/* Style the button and place it in the middle of the container/image */
+
+.background .btn2 {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #555;
+    color: white;
+    font-size: 24px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.background .btn1 {
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #555;
+    color: white;
+    font-size: 24px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.background .btn1:hover {
+    background-color: black;
+}
+
+.background .btn2:hover {
+    background-color: black;
+}

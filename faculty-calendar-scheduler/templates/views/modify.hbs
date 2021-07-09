@@ -1,0 +1,128 @@
+{{>logged_header}}
+{{#if isWrong}}
+{{#each errors}}
+<div class="alert" style="padding: 20px;background-color: #f44336;color: white;">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <strong>Retry!</strong> {{this.msg}}
+</div>
+{{/each}}
+{{/if}}
+
+<head>
+    <title>FCSS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <style>
+        .tabs .indicator {
+            background-color: #1a237e;
+        }
+
+        .tabs .tab a:focus,
+        .tabs .tab a:focus.active {
+            background: transparent;
+        }
+    </style>
+</head>
+
+<body class="indigo lighten-2">
+    <div class="parallax-container" style="height:300px;">
+        <div class="parallax">
+            <img src="img/triangle.png" alt="" class="responsive-img">
+        </div>
+    </div>
+    <div class="row" style="position: relative; top: -60px">
+        <form action="save" id="my_form" method="POST">
+            <div class=" card col l7 row z-depth-3 push-l1 " style="border-radius:7px; ">
+                <div class="row container col l12 " style="border-bottom: 2px solid indigo;">
+                    <h5 class=" col center-align l12 indigo-text text-darken-4">My Account</h5>
+                </div>
+                <div class="row">
+                    <h6 style="position: relative; left:10px; " class="indigo-text text-darken-4">USER INFORMATION</h6>
+                    <div class="col l6">
+                        <p class="indigo-text text-darken-4">User ID</p>
+                        <p style="position: relative; top:-20px;"><input type="text" id="username" name="username"
+                                value="{{username}}" placeholder="{{username}}"></p>
+                    </div>
+                    <div class="col l6">
+                        <p class="indigo-text text-darken-4">Email ID</p>
+                        <p style="position: relative; top:-20px;"><input type="text" id="mail_id" name="mail_id"
+                                value="{{mail_id}}" placeholder="{{mail_id}}"></p>
+                    </div>
+                </div>
+                <div class="row" style="position: relative; top:-40px">
+                    <div class="col l6">
+                        <p class="indigo-text text-darken-4">First Name</p>
+                        <p style="position: relative; top:-20px;"><input type="text" id="first_name" name="first_name"
+                                value="{{first_name}}" placeholder="{{first_name}}"></p>
+                    </div>
+                    <div class="col l6">
+                        <p class="indigo-text text-darken-4">Last Name</p>
+                        <p style="position: relative; top:-20px;"><input type="text" id="last_name" name="last_name"
+                                value="{{last_name}}" placeholder="{{last_name}}"></p>
+                    </div>
+                </div>
+                <div class="row " style="position: relative; top:-80px; border-bottom: 1px solid grey;">
+                    <div class="col l6">
+                        <p class="indigo-text text-darken-4">Age</p>
+                        <p style="position: relative; top:-20px;"><input type="text" id="age" name="age" value="{{age}}"
+                                placeholder="{{age}}"></p>
+                    </div>
+                    <div class="col l6">
+                        <p class="indigo-text text-darken-4">Gender</p>
+                        <p style="position: relative; top:-20px;"><input type="text" id="gender" name="gender"
+                                value="{{gender}}" placeholder="{{gender}}"></p>
+                    </div>
+                </div>
+                <div class="row" style="position: relative; top:-80px">
+                    <h6 style="position: relative; left:10px; " class="indigo-text text-darken-4">CONTACT INFORMATION
+                    </h6>
+                    <div class="col l6">
+                        <p class="indigo-text text-darken-4">Contact Number</p>
+                        <p style="position: relative; top:-20px;"><input type="text" id="phone_no" name="phone_no"
+                                value="{{phone_no}}" placeholder="{{phone_no}}"></p>
+                    </div>
+                    <div class="col l6">
+                        <p class="indigo-text text-darken-4">State</p>
+                        <p style="position: relative; top:-20px;"><input type="text" id="state" name="state"
+                                value="{{state}}" placeholder="{{state}}"></p>
+                    </div>
+                </div>
+                <div class="row" style="position: relative; top:-120px">
+                    <div class="col l12">
+                        <p class="indigo-text text-darken-4">College</p>
+                        <p style="position: relative; top:-20px;"><input type="text" id="college" name="college"
+                                value="{{college}}" placeholder="{{college}}"></p>
+                    </div>
+                    <div class="col push-l10">
+                        <a class="btn-floating btn-large indigo lighten-2 pulse" href="javascript:{}"
+                            onclick="document.getElementById('my_form').submit();">save</a>
+                    </div>
+                </div>
+        </form>
+    </div>
+    <div class="col l1  push-l2 avatar " style=" position: relative; top:-40px;">
+        <img style=" width: 180px; height: 180px;" src="img/avatar.svg" alt="">
+    </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.sidenav').sidenav();
+            $('.materialboxed').materialbox();
+            $('.parallax').parallax();
+            $('.tabs').tabs();
+            $(document).ready(function () {
+                $('select').formSelect();
+            });
+            $('.datepicker').datepicker({
+            });
+        });
+    </script>
+</body>
+{{>footer}}

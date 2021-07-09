@@ -1,0 +1,33 @@
+{
+    "name": "fcss",
+    "version": "1.0.0",
+    "description": "faculty-calendar-scheduler",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest --coverage",
+        "coverage": "sonar-scanner"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/srivathsan7/faculty-calendar-scheduler.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/srivathsan7/faculty-calendar-scheduler/issues"
+    },
+    "homepage": "https://github.com/srivathsan7/faculty-calendar-scheduler#readme",
+    "dependencies": {
+        "csv-parser": "^3.0.0",
+        "express": "^4.17.1",
+        "express-session": "^1.17.1",
+        "express-validator": "^6.10.0",
+        "googleapis": "^68.0.0",
+        "hbs": "^4.1.1",
+        "helmet": "^4.4.1",
+        "mongodb": "^3.6.4",
+        "nodemailer": "^6.5.0",
+        "passport": "^0.4.1",
+        "passport-google-oauth": "^2.0.0"
+    }
+}

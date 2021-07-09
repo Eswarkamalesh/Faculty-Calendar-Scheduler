@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FCSS</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Security-Policy" content="default-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src	'self' 'unsafe-inline' *; img-src 'self' data: *">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+        <link rel="stylesheet" href="css/login.css">
+        <style>
+			.tabs .indicator{
+				background-color: #1a237e;
+				}
+			.tabs .tab a:focus, .tabs .tab a:focus.active{
+				background: transparent;
+				}
+		</style>
+    </head>
+    <body style="background-color: #00bfa5 ;">
+        <header>
+            <nav class="nav-wrapper black">
+              <div class="container">
+                <a href="#" class="brand-logo"><img style = "position:relative; top:10px" src="https://img.icons8.com/fluent/48/000000/calendar.png"/>  FCSS</a>
+                <a href="#" class="sidenav-trigger" data-target="mobile-menu">
+                  <i class="material-icons" onclick="openNav" >menu</i>
+                </a>
+                <ul class="right hide-on-med-and-down">
+                  <li><a href="home">Home</a></li>
+                  <li><a href="#">About</a></li>
+                  {{#if isAdmin}}
+                  <li><a href="admin_dashboard">Dashboard</a></li>
+                  {{else}}
+                  <li><a href="faculty_dashboard">Dashboard</a></li>
+                  {{/if}}
+                  <li><a href="profile">{{username}}</a></li>
+                  <li><a href="logout">Logout</a></li>
+                </ul>
+                <ul class="sidenav grey lighten-2" id="mobile-menu">
+                  <li><a href="home">Home</a></li>
+                  <li><a href="#">About</a></li>
+                  {{#if isAdmin}}
+                  <li><a href="admin_dashboard">Dashboard</a></li>
+                  {{else}}
+                  <li><a href="faculty_dashboard">Dashboard</a></li>
+                  {{/if}}
+                  <li><a href="profile">{{username}}</a></li>
+                  <li><a href="logout">Logout</a></li>
+                </ul>
+              </div>
+            </nav>
+          </header>
+
+          <div class="" style="background-image: url('img/slots_back6.png') ;border: 40px solid #eeeeee;">
+            
+            <br>
+            <br>
+            <br>
+            <h2 class="center white-text">Events</h2>
+            <br>
+            
+            <br>
+            <div class="row container " style="background-color:white" >
+              <form action="filter_event" method="POST">
+                <div class="col l3" style="border-radius: 20px 0px 0px 20px;background-color: white;">
+                    <div class="input-field" style="position: relative; top:-8px; margin:24px">
+                        <select id="event_type" name="event_type" required>
+                            <option selected value="all">All events (default)</option>
+                          <option value="personal">Personal</option>
+                          <option value="timetable">Timetable</option>
+                          <option value="exam duty">Exam Duty</option>
+                          <option value="faculty meeting">Faculty Meeting</option>
+                        </select>
+                      </div>
+                </div>
+                <div class="col l3 " style="border-radius: 0px 0px 0px 0px; background-color: white;">
+                    <div class="input-field" style="position: relative; top:-8px; margin:20px">
+                      <label>Start Date:
+                        <input type="date" id="start_time" name="start_time" placeholder="Start Time" required>
+                        </label>
+                      </div>
+                </div>
+                <div class="col l3 " style="border-radius: 0px 20px 20px 0px; background-color: white;" required>
+                    <div class="input-field" style="position: relative; top:-8px; margin:20px">
+                      <label >End Date:
+                        <input type="date" id="end_time" name="end_time"  placeholder="End Time">
+                        </label>
+                      </div>
+                </div>
+                 <div class="col l3 " style="border-radius: 0px 20px 20px 0px; background-color: white;" required>
+                  <div class="input-field" style="position: relative; top:15px; margin:20px">
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Search
+    <i class="material-icons right">send</i>
+  </button>
+                  </div>
+                </div>
+                
+            </div>
+
+            </form>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+          </div>
+          <div >
+              <div class="row" style="position: relative; left:0px">
+                  <br>
+                  <br>
+                  <br>
+                  {{#each events}}
+                  {{#check @index }}
+                  <div class = "col l3">
+                  <div class=" card " style="border-radius: 5px; position: relative; left:0px; padding:20px 20px 0px 20px;background-color:{{this.color}}">
+                    <p>
+                        {{this.Desc}}
+                    </p>
+                    <div>
+                        Venue: {{this.venue}}
+                    </div>
+                    <br>
+                    <div>
+                        Date: {{this.Date}}
+                    </div>
+                    <br>
+                
+                    <div class="row">
+                        <div class="col l6">
+                            Start time: {{this.Start_time}}
+                        </div>
+                        <div class="col l6">
+                            End time: {{this.End_Time}}
+                        </div>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">Delete</a>
+                      </div>
+                </div>
+                </div>
+              </div>
+                  <div class="row" style="position: relative; left:0px">
+                  <br>
+                  {{else}}
+                  <div class = "col l3">
+                  <div class=" card " style="border-radius: 5px; position: relative; left:0px; padding:20px 20px 0px 20px;background-color:{{this.color}}">
+                    <p>
+                        {{this.Desc}}
+                    </p>
+                    <div>
+                        Venue: {{this.venue}}
+                    </div>
+                    <br>
+                    <div>
+                        Date: {{this.Date}}
+                    </div>
+                    <br>
+                
+                    <div class="row">
+                        <div class="col l6">
+                            Start time: {{this.Start_time}}
+                        </div>
+                        <div class="col l6">
+                            End time: {{this.End_Time}}
+                        </div>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">Delete</a>
+                      </div>
+                </div>
+                </div>
+                  {{/check}}
+                  {{/each}}
+                  {{#if result_len}}
+                  </div>
+                  {{/if}}
+              <!---kksd-->
+          </div>
+
+          <footer class="page-footer grey darken-3">
+            <div class="container">
+              <div class="row">
+                <div class="col l6 s12">
+                  <h5>About Me</h5>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue.</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                  <h5 class="white-text">Connect</h5>
+                  <ul>
+                    <li><a class="grey-text text-lighten-3" href="#">Facebook</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#">Twitter</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#">Linked In</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#">Instagram</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="footer-copyright grey darken-4">
+              <div class="container center-align">&copy; 2021 FCSS</div>
+            </div>
+          </footer>
+                    
+        
+                  
+                
+          
+              
+                <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+                <script>
+                $(document).ready(function(){
+                    $('.timepicker').timepicker();
+                    $('.sidenav').sidenav();
+                    $('.materialboxed').materialbox();
+                    $('.parallax').parallax();
+                    $('.tabs').tabs();
+                    $(document).ready(function(){
+            $('select').formSelect();
+          });
+                    $('.datepicker').datepicker({
+        
+                    });
+                    }); 
+                  
+          </script>
+         
+            </body>
+        </html>

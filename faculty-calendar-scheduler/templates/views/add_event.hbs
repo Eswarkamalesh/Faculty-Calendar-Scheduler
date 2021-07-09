@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>FCSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    {{>logged_header}}
+
+<body>
+    <div class="row">
+        <form action="addEvent-admin" method="POST">
+            <div class="col s4">
+                <div class="card" style="border-radius:15px;">
+                    <div class="container" style="padding: 50px;">
+                        {{#each users}}
+                        <ul style="list-style-type:none">
+                            <li>
+                                <label class="Row">
+                                    <input type="checkbox" class="filled-in" name="Faculty" value="{{this.user_id}}"/>
+                                    <span style="font-size: x-large;color: black">{{this.user_id}}<span>
+                                </label>
+                            </li>
+                        </ul>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+            <div class="col s8">
+                <div class="card" style="border-radius:15px;">
+                    <div class="container" style="padding: 50px;">
+                        <div class="addForm" id="addForm">
+                            <h4>Add new event</h4>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input id="eventVenueInput" name="eventVenueInput" type="text" class="validate"
+                                        placeholder="Venue">
+                                </div>
+                                <div class="input-field col s6">
+                                    <input id="eventDescInput" name="eventDescInput" type="text" class="validate"
+                                        placeholder="Description">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <select name="eventtype">
+                                        <option value="" disabled selected>Choose your option</option>
+                                        <option value="Faculty Meeting">Faculty Meeting</option>
+                                        <option value="Exam Duty">Exam Duty</option>
+                                    </select>
+                                    <label>Event type</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <label for="eventStarttimeInput" style="font-weight: bold;">Start Time</label>
+                                    <input id="eventStarttimeInput" name="eventStarttimeInput"
+                                        style="padding-top: 20px;" type="datetime-local" class="validate"
+                                        placeholder="Start Time">
+                                </div>
+                                <div class="input-field col s6">
+                                    <label for="eventEndTimeInput" style="font-weight: bold;">End Time</label>
+                                    <input id="eventEndTimeInput" name="eventEndTimeInput" style="padding-top: 20px;"
+                                        type="datetime-local" class="validate" placeholder="End Time">
+                                </div>
+                            </div>
+                            <div class="addEventButtons">
+                                <button class="waves-effect waves-light btn blue lighten-2" type="submit"
+                                    id="addEventButton">Add</button>
+                                <a class="waves-effect waves-light btn grey lighten-2" id="cancelAdd">Cancel</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+{{>footer}}

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>FCSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital@1&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div>
+        <ul id="slide-out" class="sidenav sidenav-fixed main-wrapper black white-text">
+            <div class="row">
+                <div class="col s4">
+                    <img src="img/Dashboard.svg" style="padding: 0%;height: 100px;width: 100px;">
+                </div>
+                <div class="col s4">
+                    <h5 class="white-Text" style="padding:30px;">Dashboard</h5>
+                </div>
+            </div>
+            <li><a class="white-text" href="../admin_dashboard">Home</a></li>
+            <hr>
+        </ul>
+    </div>
+    <div>
+        <nav class="nav-wrapper black" style="margin-left: 16%;width:84%">
+            <div class="container">
+                <a href="#" class="brand-logo"><img style="position:relative; top:10px"
+                        src="https://img.icons8.com/fluent/48/000000/calendar.png" /> FCSS</a>
+                <a href="#" class="sidenav-trigger" data-target="mobile-menu">
+                    <i class="material-icons" onclick="openNav">menu</i>
+                </a>
+                <ul class="right hide-on-med-and-down">
+                  <li><a href="home">Home</a></li>
+                  <li><a href="#">About</a></li>
+                  {{#if isAdmin}}
+                  <li><a href="admin_dashboard">Dashboard</a></li>
+                  {{else}}
+                  <li><a href="faculty_dashboard">Dashboard</a></li>
+                  {{/if}}
+                  <li><a href="profile">{{username}}</a></li>
+                  <li><a href="logout">Logout</a></li>
+                </ul>
+                <ul class="sidenav grey lighten-2" id="mobile-menu">
+                  <li><a href="home">Home</a></li>
+                  <li><a href="#">About</a></li>
+                  {{#if isAdmin}}
+                  <li><a href="admin_dashboard">Dashboard</a></li>
+                  {{else}}
+                  <li><a href="faculty_dashboard">Dashboard</a></li>
+                  {{/if}}
+                  <li><a href="profile">{{username}}</a></li>
+                  <li><a href="logout">Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="container">
+        <h4 style="font-family: 'Oswald'; margin-left:16%;margin-top:3%;">
+            Welcome {{username}}
+        </h4>
+    </div>
+    <hr>
+    <div style="margin-left: 16%; width: 84%;padding: 100px;background-color:white">
+        <div class="row">
+            <div class="col s12 m4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="img/Modify.svg" style="height: 200px;width: 100%;">
+                        <a class="btn-floating halfway-fab waves-effect waves-light red" href="profile"><i
+                                class="material-icons">edit</i></a>
+                    </div>
+                    <h4 style="padding: 10px;">Profile</h4>
+                    <hr>
+                    <div class="card-content">
+                        <p class="fl">View/Edit your profile.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="img/Modify.svg" style="height: 200px;width: 100%;">
+                        <a class="btn-floating halfway-fab waves-effect waves-light red" href="slots"><i
+                                class="material-icons">edit</i></a>
+                    </div>
+                    <h4 style="padding: 10px;">Add Timetable</h4>
+                    <hr>
+                    <div class="card-content">
+                        <p class="fl">You can add your timetable for timely remainders about your classes.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="img/Add.svg" style="height: 200px;width: 100%;">
+                        <a class="btn-floating halfway-fab waves-effect waves-light red" href="calendar"><i
+                                class="material-icons">add</i></a>
+                    </div>
+                    <h4 style="padding: 10px;">Add Event</h4>
+                    <hr>
+                    <div class="card-content">
+                        <p class="fl">Events can be added for particular Faculty or group of selected faculty</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            
+            <div class="col s12 m4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="img/Modify.svg" style="height: 200px;width: 100%;">
+                        <a class="btn-floating halfway-fab waves-effect waves-light red" href="show_timetable"><i
+                                class="material-icons">edit</i></a>
+                    </div>
+                    <h4 style="padding: 10px;">View Timetable</h4>
+                    <hr>
+                    <div class="card-content">
+                        <p class="fl">You can view your timetable for timely remainders about your classes.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="img/Calendar.svg" style="height: 200px;width: 100%;">
+                        <a class="btn-floating halfway-fab waves-effect waves-light red" href="show_events"><i
+                                class="material-icons">event</i></a>
+                    </div>
+                    <h4 style="padding: 10px;">Display Events</h4>
+                    <hr>
+                    <div class="card-content">
+                        <p class="fl">View your Events based on filters.<br></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<footer class="page-footer grey darken-3" style="margin-left: 16%;width:84%">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5>About Me</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit
+                    nec, tincidunt orci.</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Connect</h5>
+                <ul>
+                    <li><a class="grey-text text-lighten-3" href="#">Facebook</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#">Twitter</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#">Linked In</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright grey darken-4">
+        <div class="container center-align">&copy; 2021 FCSS</div>
+    </div>
+</footer>
